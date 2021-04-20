@@ -1,0 +1,2 @@
+,Unnamed: 0,batch_size,neurons,dropout,filter_size,kernel_size,stride,test_loss,test_accuracy,val_loss,val_accuracy,precision,recall,f1_score
+21,21,650,250,0.4,64,6,4,0.2409885674715042,0.9040293693542479,0.581390380859375,0.6579594016075134,0.9015174117433176,0.9158194413909654,0.9068765518603278
