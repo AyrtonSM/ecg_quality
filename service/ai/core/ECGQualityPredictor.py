@@ -1,13 +1,13 @@
 import pandas as pd
 import numpy as np
-import math
+# import math
 import tensorflow as tf
-# from tensorflow import keras
-from tensorflow import math
+from tensorflow import keras
+# from tensorflow import math
 from tensorflow.keras.models import Sequential, model_from_json
 from tensorflow.keras import layers, optimizers
 from tensorflow.keras.optimizers import Adam, SGD,RMSprop
-from tensorflow.keras.losses import SparseCategoricalCrossentropy,CategoricalCrossentropy, Reduction
+from tensorflow.keras.losses import SparseCategoricalCrossentropy,CategoricalCrossentropy
 from tensorflow.keras.layers import Dense, Conv2D,Conv1D, MaxPooling2D,MaxPooling1D, Dropout
 from tensorflow.keras.initializers import RandomNormal
 from tensorflow.keras.metrics import SparseCategoricalAccuracy,CategoricalAccuracy
@@ -16,18 +16,16 @@ from tensorflow.keras.callbacks import ModelCheckpoint, LearningRateScheduler, E
 from sklearn.model_selection import train_test_split,cross_val_score,KFold
 from sklearn import preprocessing
 from sklearn.utils import shuffle
-from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score
-from keras.utils import to_categorical     
+from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score   
 # import numba          
 import collections      
 import random 
-from service.ai.core.CUDAExcecutor import Excecutor
 # import os
 # os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 # os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 DATA_PATH = 'C:\\Users\\ayrto\Downloads\Compressed\\brno-university-of-technology-ecg-quality-database-but-qdb-1.0.0\\data'       
 print(tf.config.list_physical_devices('GPU'))
-print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
+# print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
 print(tf.test.is_built_with_cuda())                                                                                                                                                   
 class ECGQualityPredictor:
     log = {}

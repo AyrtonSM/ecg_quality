@@ -6,7 +6,7 @@ from service.ECGReading import ECGReading
 from service.ai.core.ECGQualityPredictor import ECGQualityPredictor
 import math
 import matplotlib.pyplot as plt
-import keras
+# import keras
 import random
 from matplotlib import pyplot as plt
 # from numba import cuda, jit
@@ -77,26 +77,50 @@ def load_report():
 
 def find_best_combination():
     df = pd.read_csv('data/results_models_log.csv')
+    print(df)
     val_loss = df['val_loss'].tolist() 
     test_loss = df['test_loss'].tolist() 
     # rs = [x for x in zip(val_loss, test_loss)]
-    plt.plot(val_loss, 'go-', label='Loss in Validation dataset', linewidth=2)
-    plt.legend()
-    plt.plot(test_loss, 'bo-', label='Loss in Test dataset')
-    plt.legend()
-    
-    best_dataframe = df[df.val_loss == df.val_loss.min()]
+    best_dataframe = df[df.f1_score == df.f1_score.max()]
     best_dataframe.to_csv('data/best_model_by_f1_score.csv')
-    worst_dataframe = df[df.val_loss == df.val_loss.max()]
+    worst_dataframe = df[df.f1_score == df.f1_score.min()]
     worst_dataframe.to_csv('data/worst_model_by_f1_score.csv')
     print('best combination => \n' , best_dataframe)
     print('worst combination => \n' , worst_dataframe)
+    print(df.f1_score)
+    print(f"F1_SCORE_AVG: {np.mean(df.f1_score)}")
+    print(f"ACCURACY_AVG: {np.mean(df.val_accuracy)}")
+    print(f"TEST_AVG: {np.mean(df.test_accuracy)}")
+    print(f"PRECISION_AVG: {np.mean(df.precision)}")
+    print(f"RECALL_AVG: {np.mean(df.recall)}")
 
+    # plt.plot([x for x in range(100)],df.f1_score,'go-' ,label='Métrica f1_score por modelo')
+    # plt.legend()
+    # plt.plot([x for x in range(100)],df.precision,'b--' ,label='Métrica precision por modelo',alpha=0.4)
+    # plt.legend()
+    # plt.plot([x for x in range(100)],df.recall,'yx-' ,label='Métrica recall por modelo', alpha=0.4)
+    # plt.legend()
+
+    # plt.plot([x for x in range(100)],df.test_loss,'go-' ,label='Erro na base de teste por modelo')
+    # plt.legend()
+    # plt.plot([x for x in range(100)],df.val_loss,'b--' ,label='Erro na base de validação por modelo',alpha=0.4)
+    # plt.legend()
+    
+    # plt.plot([x for x in range(100)],df.test_accuracy,'go-' ,label='Acurácia na base de teste por modelo')
+    # plt.legend()
+    # plt.plot([x for x in range(100)],df.val_accuracy,'b--' ,label='Acurácia na base de validação por modelo',alpha=0.4)
+    # plt.legend()
+
+
+    # plt.plot([x for x in range(100)],df.recall,'yx-' ,label='Métrica recall por modelo', alpha=0.4)
+    # plt.legend()
+   
+    
     plt.show()
 
 # main()
-# build_ai_model()
+build_ai_model()
 # predict()
 # evaluate()
 # load_report()
-find_best_combination()
+# find_best_combination()

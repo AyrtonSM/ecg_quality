@@ -325,8 +325,6 @@ class DataCleanse:
             for sample in sample_names:
                 files = [f for f in glob.glob(f'{DATA_PATH}\\{intervals[i]}\\{sample}_part_*.{extension}')]
 
-                
-
                 # document = f"{DATA_PATH}\\{intervals[i]}\\major_table_interval_{i}.csv")
 
 
