@@ -1,4 +1,4 @@
-<img src="exemplo-image.png" alt="exemplo imagem">
+<img src="https://gortnm.com/uploads/1629358331.jpg" alt="exemplo imagem">
 
 # Automatic Signal Quality Classification with Convolutional Neural Networks
 
