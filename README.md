@@ -11,9 +11,9 @@ Thus, the present paper seeks to verify the feasibility of using an automatic so
 
 Computer Version:
 
-[![Windows](#)]
-[![Linux](#)]
-[![Mac](#)]
+[![Windows](#windows)
+[![Linux](#linux)]
+[![Mac](#mac)]
 
 
 Tech Stack:
