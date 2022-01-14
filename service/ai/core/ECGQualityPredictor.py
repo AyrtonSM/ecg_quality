@@ -1,9 +1,9 @@
 import pandas as pd
 import numpy as np
-# import math
+
 import tensorflow as tf
 from tensorflow import keras
-# from tensorflow import math
+
 from tensorflow.keras.models import Sequential, model_from_json
 from tensorflow.keras import layers, optimizers
 from tensorflow.keras.optimizers import Adam, SGD,RMSprop
@@ -17,15 +17,12 @@ from sklearn.model_selection import train_test_split,cross_val_score,KFold
 from sklearn import preprocessing
 from sklearn.utils import shuffle
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score   
-# import numba          
+        
 import collections      
 import random 
-# import os
-# os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
-# os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+
 DATA_PATH = 'C:\\Users\\ayrto\Downloads\Compressed\\brno-university-of-technology-ecg-quality-database-but-qdb-1.0.0\\data'       
 print(tf.config.list_physical_devices('GPU'))
-# print('Default GPU Device: {}'.format(tf.test.gpu_device_name()))
 print(tf.test.is_built_with_cuda())                                                                                                                                                   
 class ECGQualityPredictor:
     log = {}
@@ -106,7 +103,7 @@ class ECGQualityPredictor:
                         model_design['data']['X_train'],
                         model_design['data']['y_train'],
                         validation_data=(model_design['data']['X_val'], model_design['data']['y_val']),
-                        batch_size=batch, #melhor 630 para,2664 ,1584
+                        batch_size=batch,
                         epochs=30,
                         shuffle=True,
                         callbacks = [earlyStoppingCallback,checkpoint])
@@ -245,7 +242,6 @@ class ECGQualityPredictor:
     # @numba.jit(nopython=True)
     def build(self, data):
 
-        # data = dataframe.to_numpy()
         data = shuffle(data)
         train_data = data.loc[:,:999].to_numpy() # Pega todas as linhas e todas as colunas exceto a ultima
         class_data = data[1000].to_numpy()
@@ -272,30 +268,21 @@ class ECGQualityPredictor:
         
         test_sample = test_sample.reshape(test_sample.shape[0],test_sample.shape[1],1).astype("float32")
         test_label =  test_label.reshape(test_label.shape[0],1,1).astype("float32")
-        # X_train = train_data
-        # y_train = class_data
-
-        # val_sample = val_sample
-        # val_label = val_label
+  
+      
         
-        # test_sample = test_sample
-        # test_label =  test_label
-
-        
-        
+        # batch_sizes = [50]
         batch_sizes = [50,150,300,650]
         # neurons     = [500,1250,1750]
         neurons     = [250,500,1000, 1750,2500]
-        filter_size = [32,64,128]
-        kernel_size = [4,6,8]
-        stride      = [4,6]
-        dropout     = [0.2,0.4]
-        # batch_sizes = [50]
-        # neurons     = [64]
-        # dropout     = [0.4]
         # filter_size = [64]
+        filter_size = [32,64,128]
         # kernel_size = [6]
+        kernel_size = [4,6,8]
         # stride      = [6]
+        stride      = [4,6]
+        # dropout     = [0.4]
+        dropout     = [0.2,0.4]
 
         hyper = {
             'batch_size' : batch_sizes,
