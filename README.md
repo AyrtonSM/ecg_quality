@@ -14,8 +14,9 @@ Thus, the present paper seeks to verify the feasibility of using an automatic so
 
 ## Install & Run
 
+```
 $ git clone https://github.com/AyrtonSM/ecg_quality.git
 $ cd ecg_quality/
 $ conda create --name ANY_NAME_YOU_WANT --file requirements.txt 
 $ python main.py
-
+```
