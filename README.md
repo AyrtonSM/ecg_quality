@@ -6,16 +6,6 @@ EKG Quality Predition Research. This project presents as a central theme the qua
 Acceptable, Semi-Acceptable and Not Acceptable. 
 Thus, the present paper seeks to verify the feasibility of using an automatic solution using Deep Learning techniques with a focus on Convolutional Neural Networks to classify the quality of these signals.
 
-
-## Download
-
-Computer Version:
-
-[![Windows](#windows)
-[![Linux](#linux)]
-[![Mac](#mac)]
-
-
 Tech Stack:
 - Python 3.7
 - Tensorflow 
